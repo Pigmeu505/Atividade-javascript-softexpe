@@ -1,7 +1,11 @@
-idade = parseFloat(prompt("digite sua idade aqui"))
+idade = parseFloat(prompt("digite sua idade:"))
 
-if (idade >= 18) {
-    alert("você pode ser militar")
+if (idade < 12) {
+    alert("Classificação: Livre")
+} else if (idade >= 12 && idade <= 14) {
+    alert("Classificação: +12")
+} else if (idade >= 15 && idade <= 17) {
+    alert("Classificação: +15")
 } else {
-    alert("você não pode ser militar")
+    alert("Classificação: +18")
 }
