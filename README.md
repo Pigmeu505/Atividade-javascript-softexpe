@@ -1,32 +1,42 @@
 # 📚 Atividades - Curso Back-end JavaScript (Softex PE)
 
-Este repositório foi criado para **salvar e organizar** algumas atividades simples desenvolvidas durante o curso de **Back-end em JavaScript** da [Softex PE](https://softexpe.org.br/). 🚀  
+Este repositório reúne **atividades e exercícios** realizados durante o curso de **Back-end em JavaScript** da [Softex PE](https://softexpe.org.br/). Aqui você encontra meus **registros de aprendizado**, desde conceitos básicos até pequenos desafios práticos. 🚀  
 
-> ⚠️ Não é um projeto final, apenas um espaço para registrar meus exercícios e práticas do curso.
+> ⚠️ Lembre-se: este não é um projeto final, apenas um espaço para praticar e acompanhar meu progresso no curso.
 
 ---
 
-## 📌 Conteúdo
-- Atividades básicas de lógica em JavaScript  
-- Exercícios de manipulação de dados  
-- Estruturas de repetição, condicionais e funções  
-- Pequenos desafios práticos propostos no curso  
+## 🔗 Acesse o Hub de Atividades
+Todos os exercícios organizados estão disponíveis online no meu **Hub de Atividades**:  
+[https://pigmeu505.github.io/Atividade-javascript-softexpe/](https://pigmeu505.github.io/Atividade-javascript-softexpe/) 🌐
+
+---
+
+## 📌 Conteúdo do repositório
+O repositório inclui atividades como:  
+- Exercícios de **lógica em JavaScript**  
+- Manipulação de dados e arrays  
+- **Estruturas de repetição** e condicionais  
+- Criação de **funções** e pequenos scripts  
+- Desafios práticos propostos no curso  
 
 ---
 
 ## 🎯 Objetivo
-O objetivo principal é **guardar meu progresso** durante o aprendizado de back-end, além de poder revisitar o código sempre que precisar.
+- Guardar meu **progresso no aprendizado de back-end**  
+- Ter um local para **consultar e revisar códigos**  
+- Melhorar **lógica de programação** e familiaridade com Node.js  
 
 ---
 
 ## 🛠️ Tecnologias
-- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)  
-- [Node.js](https://nodejs.org/) (para executar os códigos localmente)  
+- **JavaScript** – linguagem principal do curso  
+- **Node.js** – para executar os códigos localmente  
 
 ---
 
-## 🚀 Como executar
-Clone o repositório e rode os arquivos usando o Node:
+## 🚀 Como executar os exercícios
+1. Clone o repositório:
 
 ```bash
 # Clonar o repositório
