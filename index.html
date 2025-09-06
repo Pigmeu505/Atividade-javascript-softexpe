@@ -1,11 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Hub de Atividades</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .hub {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      width: 400px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .atividade {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #eee;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .atividade:hover {
+      background: #ddd;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
 </head>
 <body>
-    <script src="ex3.js"></script>
+  <div class="hub">
+    <h1>Hub de Atividades</h1>
+    <div id="lista"></div>
+  </div>
+
+  <script>
+    // Gerar lista de atividades dinamicamente
+    const lista = document.getElementById("lista");
+
+    for (let i = 1; i <= 16; i++) {
+      const div = document.createElement("div");
+      div.className = "atividade";
+      div.innerHTML = `
+        <span>Atividade ${i}</span>
+        <button onclick="iniciar(${i})">Iniciar</button>
+      `;
+      lista.appendChild(div);
+    }
+
+    // Função para carregar e rodar o JS da atividade
+    function iniciar(num) {
+      // Remove script antigo se já tiver carregado
+      const antigo = document.getElementById("atividadeScript");
+      if (antigo) antigo.remove();
+
+      const script = document.createElement("script");
+      script.src = `ex${num}.js`; // nome do arquivo
+      script.id = "atividadeScript";
+      document.body.appendChild(script);
+    }
+  </script>
 </body>
 </html>
