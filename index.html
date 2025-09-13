@@ -19,7 +19,7 @@
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      width: 400px;
+      width: 500px;
     }
     h1 {
       text-align: center;
@@ -27,17 +27,34 @@
       color: #333;
     }
     .atividade {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       background: #eee;
       padding: 10px 15px;
       margin-bottom: 10px;
       border-radius: 8px;
+      cursor: pointer;
       transition: background 0.3s;
+      position: relative;
     }
     .atividade:hover {
       background: #ddd;
+    }
+    .descricao {
+      display: none;
+      margin-top: 10px;
+    }
+    .numero-atividade {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      background: #4CAF50;
+      color: white;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
     }
     button {
       background: #4CAF50;
@@ -47,6 +64,7 @@
       border-radius: 6px;
       cursor: pointer;
       transition: background 0.3s;
+      margin-top: 5px;
     }
     button:hover {
       background: #45a049;
@@ -60,32 +78,91 @@
   </div>
 
   <script>
-    // Gerar lista de atividades dinamicamente
     const lista = document.getElementById("lista");
 
-    for (let i = 1; i <= 19; i++) {
+    // ===== NOMES E DESCRIÇÕES =====
+    const nomes = [
+      "Média de Duas Notas",
+      "Área do Triângulo",
+      "Conversão de Idade",
+      "Média de 5 Notas",
+      "Fahrenheit para Celsius",
+      "Teorema de Pitágoras",
+      "Verificar Maioridade",
+      "Aprovação Escolar",
+      "Classificação Etária",
+      "Maior de 3 Números",
+      "Mês Correspondente",
+      "Contagem Pim",
+      "Tabuada",
+      "Investimento com Juros Compostos",
+      "Cálculo de Capital Mensal",
+      "Calculadora de Compras",
+      "Média e Números Acima da Média",
+      "Simulador de Caixa"
+    ];
+
+    const descricoes = [
+      "Calcula a média de duas notas informadas pelo usuário.",
+      "Calcula a área de um triângulo a partir da base e altura.",
+      "Converte a idade em dias, horas, minutos e segundos.",
+      "Calcula a média de cinco notas digitadas.",
+      "Converte temperatura de Fahrenheit para Celsius.",
+      "Calcula a hipotenusa usando o teorema de Pitágoras.",
+      "Verifica se a pessoa é maior ou menor de idade.",
+      "Determina aprovação, recuperação ou reprovação a partir da média de 4 notas.",
+      "Classifica idade em categorias de classificação etária.",
+      "Encontra o maior número entre três números fornecidos.",
+      "Mostra o mês correspondente ao número informado.",
+      "Conta números exibindo 'Pim' nos múltiplos de 3.",
+      "Gera a tabuada de um número fornecido.",
+      "Calcula o capital final com juros compostos mensais.",
+      "Mostra o capital acumulado mês a mês.",
+      "Calcula o total da compra de vários produtos e mostra o valor final.",
+      "Calcula a média de N números e mostra os que são maiores ou iguais à média.",
+      "Simula um caixa de supermercado, exibindo o cupom da venda."
+    ];
+
+    // ===== GERAR AUTOMATICAMENTE =====
+    for (let i = 0; i < nomes.length; i++) {
       const div = document.createElement("div");
       div.className = "atividade";
+
       div.innerHTML = `
-        <span>Atividade ${i}</span>
-        <button onclick="iniciar(${i})">Iniciar</button>
+        <strong>${nomes[i]}</strong>
+        <div class="numero-atividade">${i+1}</div>
+        <div class="descricao">
+          <p>${descricoes[i]}</p>
+          <button onclick="iniciar(${i+1})">Iniciar</button>
+        </div>
       `;
+
+      // Toggle da descrição e fechar as outras atividades
+      div.addEventListener("click", function(e) {
+        if(e.target.tagName.toLowerCase() !== 'button') {
+          const todasDescricoes = document.querySelectorAll(".descricao");
+          todasDescricoes.forEach(d => {
+            if(d !== this.querySelector(".descricao")) d.style.display = "none";
+          });
+
+          const desc = this.querySelector(".descricao");
+          desc.style.display = desc.style.display === "block" ? "none" : "block";
+        }
+      });
+
       lista.appendChild(div);
     }
 
-    // Função para carregar e rodar o JS da atividade
+    // ===== FUNÇÃO INICIAR ATIVIDADE =====
     function iniciar(num) {
-      // Remove script antigo se já tiver carregado
       const antigo = document.getElementById("atividadeScript");
       if (antigo) antigo.remove();
 
       const script = document.createElement("script");
-      script.src = `ex${num}.js`; // nome do arquivo
+      script.src = `ex${num}.js`;
       script.id = "atividadeScript";
       document.body.appendChild(script);
     }
   </script>
 </body>
 </html>
-
-
